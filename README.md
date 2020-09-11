@@ -1,2 +1,3 @@
 # CalculadoraFinanciamento
-apps script para montar Tabela Price
+
+Projeto Cultural do Colégio Pitágoras
