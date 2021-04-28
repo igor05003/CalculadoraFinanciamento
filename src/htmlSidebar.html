@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+  <style>
+    td.name {
+      width: 43%;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Calculadora de Financiamento</h2>
+
+  <form id="formulario" accept-charset="UTF-8" onsubmit="calcular();">
+    <table style="width:100%;">
+      <tr>
+        <td class="name" style="width: 30%;"><label for="valor_financiado">Valor financiado</label></td>
+        <td>
+          R$ <input id="valor_financiado" style="width: 7.3em;" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+        </td>
+      </tr>
+      <tr>
+        <td class="name"><label for="taxa_juros">Taxa de juros</label></td>
+        <td>
+          <input id="taxa_juros" style="width:7.3em;" type="number" min="0.01" step="0.01" placeholder="0.00" required> %
+        </td>
+      </tr>
+      <tr>
+        <td class="name"><label for="numero_parcelas">Número de parcelas</label></td>
+        <td>
+          <input id="numero_parcelas" style="width: 4.1em;" type="number" min="1" step="1" placeholder="0" required>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <button class="action" id="b-Submit" type="submit" form="formulario">Calcular</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    function calcular() {
+      google.script.run.calculadora(
+        Number($("#valor_financiado").val()),
+        Number($("#numero_parcelas").val()),
+        Number($("#taxa_juros").val())
+      );
+    }
+  </script>
+</body>
+
+</html>
